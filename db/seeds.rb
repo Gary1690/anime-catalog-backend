@@ -10,19 +10,21 @@ User.delete_all
 
 require 'rest-client'
 
-rm = RestClient.get 'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=40'
+rm = RestClient.get 'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=60'
 
 
 results = JSON.parse(rm)
 
 results['data'].each do |anime|
-    Anime.create(
-    title: anime['attributes']['titles']['en'],
-    img_url: anime['attributes']['posterImage']['medium'],
-    description: anime['attributes']['synopsis'],
-    screen: anime['attributes']['subtype'],
-    age_rating: anime['attributes']['ageRating']
-    )
+    if(anime['attributes']['titles']['en'])
+        Anime.create(
+        title: anime['attributes']['titles']['en'],
+        img_url: anime['attributes']['posterImage']['medium'],
+        description: anime['attributes']['synopsis'],
+        screen: anime['attributes']['subtype'],
+        age_rating: anime['attributes']['ageRating']
+        )
+    end
 end
 
 User.create(

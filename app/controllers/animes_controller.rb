@@ -2,12 +2,12 @@ class AnimesController < ApplicationController
 
     def index
         animes = Anime.all
-        render json:animes
+        render json: animes, methods: [:get_rating]
     end
 
     def show
         anime = Anime.find(params[:id])
-        render json:anime.to_json(:include => {:reviews})
+        render json: anime, include: [:reviews]
     end
 
     def create
