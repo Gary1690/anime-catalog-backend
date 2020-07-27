@@ -7,8 +7,9 @@ class AnimesController < ApplicationController
 
     def show
         anime = Anime.find(params[:id])
-        render json:anime.to_json(:include => {:reviews})
+        render json: anime, include: [:reviews]
     end
+
 
     def create
         anime = Anime.create(anime_params)
