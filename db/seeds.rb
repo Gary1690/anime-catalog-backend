@@ -6,30 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.delete_all
+# User.delete_all
 
 require 'rest-client'
 
-rm = RestClient.get 'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=40'
+rm = RestClient.get 'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=60'
 
 
 results = JSON.parse(rm)
 
 results['data'].each do |anime|
-    Anime.create(
-    title: anime['attributes']['titles']['en'],
-    img_url: anime['attributes']['posterImage']['medium'],
-    description: anime['attributes']['synopsis'],
-    screen: anime['attributes']['subtype'],
-    age_rating: anime['attributes']['ageRating']
-    )
+    if(anime['attributes']['titles']['en'])
+        Anime.create(
+        title: anime['attributes']['titles']['en'],
+        img_url: anime['attributes']['posterImage']['medium'],
+        description: anime['attributes']['synopsis'],
+        screen: anime['attributes']['subtype'],
+        age_rating: anime['attributes']['ageRating']
+        )
+    end
 end
 
-User.create(
-    username: 'Ronan',
-    password: 'ronan',
-    img_url: 'https://ca.slack-edge.com/T02MD9XTF-U0136H00BFW-5315a4c7fdc2-512'
-)
+# User.create(
+#     username: 'Ronan',
+#     password: 'ronan',
+#     img_url: 'https://ca.slack-edge.com/T02MD9XTF-U0136H00BFW-5315a4c7fdc2-512'
+# )
 
 
 
