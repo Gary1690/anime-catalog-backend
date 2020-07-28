@@ -18,14 +18,20 @@ class AnimesController < ApplicationController
         render json:anime
     end
 
-    def edit
+    def update
         anime = Anime.find(params[:id])
         anime.update(anime_params)
         render json:anime
     end
 
-    def delete
+    def destroy
         anime = Anime.find(params[:id])
+        anime.favorites.each  do |favorite|
+            favorite.delete
+        end
+        anime.reviews.each  do |review|
+            review.delete
+        end
         anime.delete
         render json: anime
     end
