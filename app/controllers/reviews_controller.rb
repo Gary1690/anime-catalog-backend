@@ -5,6 +5,13 @@ class ReviewsController < ApplicationController
     render json: review, methods: [:anime_rating], include: [:user]
   end 
 
+  def update 
+ 
+    review = Review.find(params[:id])
+    review.update(review_params)
+    render json: review, methods: [:anime_rating], include: [:user]
+  end 
+
   def destroy 
     review = Review.find(params[:id])
     review.delete 
