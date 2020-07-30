@@ -10,6 +10,8 @@ class UsersController < ApplicationController
         render json: user, include:[:animes], methods:[:my_anime_ids]
     end
 
+   
+
     private
 
     def user_params
