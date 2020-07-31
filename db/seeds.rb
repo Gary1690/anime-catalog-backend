@@ -10,7 +10,7 @@
 
 require 'rest-client'
 
-rm = RestClient.get 'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=60'
+rm = RestClient.get 'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=160'
 
 
 results = JSON.parse(rm)
@@ -26,6 +26,20 @@ results['data'].each do |anime|
         )
     end
 end
+
+# rm = RestClient.get 'https://ghibliapi.herokuapp.com/films'
+   
+# results = JSON.parse(rm)
+
+# results.each do |anime|
+#     Anime.create(
+#         title: anime['title'],
+#         img_url: 'https://ih1.redbubble.net/image.373846032.5788/fposter,small,wall_texture,product,750x1000.u2.jpg',
+#         description: anime['description'],
+#         screen: 'Movie',
+#         age_rating: 'PG'
+#     )
+# end
 
 # User.create(
 #     username: 'Ronan',
