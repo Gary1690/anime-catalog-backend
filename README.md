@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Manga in Motion
 
-Things you may want to cover:
+React web-application with Rails backend that mimics an anime catalog. It allows the users to explore the catalog by sorting and filtering, manage favorites, write reviews, rate animes, and share with other subscribers.
 
-* Ruby version
 
-* System dependencies
+## Front-End Repo
 
-* Configuration
+https://github.com/Gary1690/MangaInMotion-frontend
 
-* Database creation
+## Demo Link
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://www.youtube.com/watch?v=Hm6AlPpVjy0
