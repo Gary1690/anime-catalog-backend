@@ -9,6 +9,12 @@ React web-application with Rails backend that mimics an anime catalog. It allows
 
 https://github.com/Gary1690/MangaInMotion-frontend
 
+## Requires
+
+ruby --version '2.6.1'
+
+rails --version '6.0.3'
+
 ## Demo Link
 
 https://www.youtube.com/watch?v=Hm6AlPpVjy0
